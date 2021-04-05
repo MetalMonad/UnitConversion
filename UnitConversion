@@ -1,0 +1,58 @@
+//Author Rob Lang
+
+import java.util.Scanner;
+
+public class UnitConverter {
+    public static void main(String[] args){
+    int userInput;
+    double userAmount;
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.println("Hello user! Please 1enter the number for the type of measurement would you like to convert");
+    System.out.println("1. Pounds to Kilograms");
+    System.out.println("2. Miles to Kilometers");
+    System.out.println("3. Fahrenheit to Celceus");
+    userInput = scan.nextInt();
+    
+    while(userInput != 1 && userInput != 2 && userInput != 3){
+        System.out.println("Invalid choice, please enter 1, 2, or 3");
+        userInput = scan.nextInt();
+    }
+    
+    if(userInput == 1){
+        System.out.println("Please enter the amount of pounds you wish to convert to kilograms: ");
+        userAmount = scan.nextDouble();   
+        System.out.println(userAmount + " pounds is equal to " + poundsAndKG(userAmount) + " kilograms");
+    }else if(userInput == 2){
+        System.out.println("Enter the amount of miles you wish to convert to kilometers: ");
+        userAmount = scan.nextDouble();
+        System.out.println(userAmount + " miles is equal to " + milesAndKM(userAmount) + " kilometers");
+    }else if(userInput == 3){
+        System.out.println("Enter the temperture in Fahrenheit you wish to convert to Celcius: ");
+        userAmount = scan.nextDouble();
+        System.out.println(userAmount + " F is equal to " + fahrToCel(userAmount) + " C");
+    }
+    }
+    
+    //pounds to kilos
+    public static double poundsAndKG(double userAmount){
+        double result;       
+        result = userAmount * 0.453592;
+        return result;        
+    }
+    
+    //miles to KM
+    public static double milesAndKM(double userAmount){
+        double result;
+        result = userAmount * 1.609344; 
+        return result;
+    }
+    
+    //fahrenheit to celcius
+    public static double fahrToCel(double userAmount){
+        double result;       
+        result = userAmount - 32 * 5 / 9;
+        return result;
+    }
+    
+}
